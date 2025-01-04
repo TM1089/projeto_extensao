@@ -8,26 +8,28 @@
 </head>
 <body class="bg-gray-100">
     <!-- Cabeçalho -->
-    <header class="bg-gray-800 text-white p-4 flex justify-between items-center"> <!-- Alterada a linha 10 -->
-        <div class="flex items-center space-x-4">
-            <div class="text-2xl font-bold">ECA</div>
-            <nav class="space-x-4">
-                <a href="#home" class="hover:underline">Home</a>
-                <a href="#articles" class="hover:underline">Artigos</a>
-                <a href="https://www.planalto.gov.br/ccivil_03//_Ato2019-2022/2022/Lei/L14344.htm" target="_blank" class="hover:underline">Lei Henry Borel</a>
-                <a href="#contact" class="hover:underline">Contate-nos</a>
-            </nav>
-        </div>
-        <img src="https://media.istockphoto.com/id/1433205773/pt/vetorial/christmas-and-new-year-background-xmas-pine-fir-lush-tree-candy-cane-from-cookies-golden.jpg?s=612x612&w=0&k=20&c=k9MvC1tDSkVju8VNJqgxTKiNkPo11gi58KZxrT8RriA=" alt="Imagem Natalina" class="w-16 h-16 rounded-full"> <!-- Inserida a linha 13 -->
+    <header class="bg-gray-800 text-white p-4 flex justify-between items-center">
+        <div class="text-2xl font-bold">ECA</div>
+        <nav class="space-x-4">
+            <a href="#home" class="hover:underline">Home</a>
+            <a href="#articles" class="hover:underline">Artigos</a>
+            <a href="https://www.planalto.gov.br/ccivil_03//_Ato2019-2022/2022/Lei/L14344.htm" target="_blank" class="hover:underline">Lei Henry Borel</a>
+            <a href="#contact" class="hover:underline">Contate-nos</a>
+        </nav>
     </header>
 
     <!-- Seção Sobre -->
     <section id="about" class="container mx-auto my-8 p-4 bg-white rounded shadow-lg">
-        <h1 class="text-3xl font-bold mb-4">Sobre</h1>
-        <p>Aqui vai uma breve descrição do que é etc etc</p>
-        <p class="mt-4">
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-        </p>
+        <div class="flex">
+            <div class="w-1/2 p-4">
+                <img src="src="https://tse3.mm.bing.net/th?id=OIG1..JPro1iiwd7JfitVXsjH&pid=ImgGn" alt="Descrição da Imagem" class="w-full h-auto rounded-lg">
+            </div>
+            <div class="w-1/2 p-4">
+                <h1 class="text-3xl font-bold mb-4">Sobre</h1>
+                <p>Aqui vai uma breve descrição do que é etc etc</p>
+                <p class="mt-4"> "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." </p>
+            </div>
+        </div>
     </section>
 
     <!-- Seção de Artigos -->
@@ -41,6 +43,32 @@
         </ul>
     </section>
 
+    <!-- Seção Contate-nos -->
+    <section id="contact" class="container mx-auto my-8 p-4 bg-white rounded shadow-lg">
+        <h2 class="text-2xl font-bold mb-4">Contate-nos</h2>
+        <form id="contactForm" class="space-y-4" action="mailto:projetoextensaouniasselvi@gmail.com" method="POST" enctype="multipart/form-data">
+            <div>
+                <label for="name" class="block text-sm font-medium text-gray-700">Nome</label>
+                <input type="text" id="name" name="name" required class="mt-1 block w-full p-2 border border-gray-300 rounded-md">
+            </div>
+            <div>
+                <label for="phone" class="block text-sm font-medium text-gray-700">Telefone</label>
+                <input type="tel" id="phone" name="phone" required class="mt-1 block w-full p-2 border border-gray-300 rounded-md">
+            </div>
+            <div>
+                <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+                <input type="email" id="email" name="email" required class="mt-1 block w-full p-2 border border-gray-300 rounded-md">
+            </div>
+            <div>
+                <label for="message" class="block text-sm font-medium text-gray-700">Mensagem</label>
+                <textarea id="message" name="message" required class="mt-1 block w-full p-2 border border-gray-300 rounded-md"></textarea>
+            </div>
+            <div>
+                <button type="submit" class="bg-blue-500 text-white p-2 rounded-md">Enviar</button>
+            </div>
+        </form>
+    </section>
+
     <!-- Rodapé -->
     <footer class="bg-gray-800 text-white p-4 mt-8">
         <div class="container mx-auto text-center">
@@ -51,5 +79,22 @@
         </div>
     </footer>
 
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            let name = document.getElementById('name').value;
+            let phone = document.getElementById('phone').value;
+            let email = document.getElementById('email').value;
+            let message = document.getElementById('message').value;
+
+            if (name && phone && email && message) {
+                // Aqui você pode adicionar a lógica para enviar o e-mail usando um serviço como o EmailJS ou uma API de backend
+                alert('Formulário enviado com sucesso!');
+            } else {
+                alert('Por favor, preencha todos os campos obrigatórios.');
+            }
+        });
+    </script>
 </body>
 </html>
